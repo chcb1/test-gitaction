@@ -25,7 +25,8 @@ jobs:
       - name: Set Variable
         env:
           repository: echo ${GITHUB_REF#refs/heads/} | sed 's/\//_/g')
-
+        run: echo "::set-env name=repository::$(echo ${GITHUB_REF#refs/heads/} | sed 's/\//_/g')"
+        
       - name: TEsting variable
         run: echo "$repository"
 
