@@ -24,7 +24,7 @@ jobs:
 
       - name: Set Variable
         env:
-          repository: echo ${GITHUB_REF#refs/heads/} | sed 's/\//_/g')
+          repository: ${GITHUB_REF#refs/heads/} | sed 's/\//_/g')
         run: echo "name=repository::$(echo ${GITHUB_REF#refs/heads/} | sed 's/\//_/g')"
         
       - name: TEsting variable
