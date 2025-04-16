@@ -21,3 +21,9 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+
+      - name: Test Variable
+        env:
+          repository: echo "name=repository::$(echo ${GITHUB_REF#refs/heads/} | sed 's/\//_/g')"
+        run: echo "$repository"
+
